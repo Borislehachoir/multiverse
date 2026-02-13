@@ -90,7 +90,20 @@ header {
     height: auto;
 }
 
+.choix {
+    padding: 10px 10px;
+    font-size: 1em;
+    border: none;
+    background-color: #ee2c6b;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
 
+.choix:hover{
+    background-color:#981b43;
+}
 
 
 /*Footer */
