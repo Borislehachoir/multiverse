@@ -1,10 +1,10 @@
 function toggleMenu() {
-        const menu = document.getElementById("menu");
-        const separator = document.getElementById("separator");
+    const menu = document.getElementById("menu");
+    const separator = document.getElementById("separator");
 
-        menu.classList.toggle("hidden");
-        separator.classList.toggle("hidden");
-    }
+    menu.classList.toggle("hidden");
+    separator.classList.toggle("hidden");
+}
 
 
 var form = document.getElementById("searchForm");
