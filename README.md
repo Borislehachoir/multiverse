@@ -5,7 +5,7 @@ En gros j'ai implémenté toutes les fonctionnalités de base sauf les modales, 
 mais le temps me manque parce que j'ai perdu mon projet trois fois aujourd'hui avant de faire un git clone. 
 
 Au niveau de ma démarche, je me suis appuyé sur les cours qu'on a fait, 
-et j'ai surtout utilisé l'IA quand je savais pas faire un truc. En gros j'écrivais des prompts en pseudo code, ou je lui disais "attends frérot à ton avis qu'est-ce qu'on me demande ici ?". 
+et j'ai surtout utilisé l'IA quand je savais pas faire un truc. En gros j'écrivais des prompts en pseudo- pseudo code (parfois c'était carrément des phrases en mode "si je fais telle interaction, alors ça active telle fonction fin tu vois ce que je veux dire non ?" (non elle ne voit pas c'est des lignes de code sur des serveurs **Boris**)), ou je lui disais "attends frérot à ton avis qu'est-ce qu'on me demande ici ?". 
 
 J'ai fait Format Document sur VS Code un nombre incalculable de fois parce que ça m'énervait d'avoir une div à Strasbourg et une autre à Biarritz. 
 Ah oui, j'ai récupéré les styles du header et du footer sur un autre site que j'avais fait, je fais souvent ça parce qu'ils ont tous les éléments de base qu'on peut demander d'un en-tête et d'un pied de page, 
