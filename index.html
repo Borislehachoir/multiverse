@@ -1,145 +1,72 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Multiverse Dating - Deck</title>
+  <title>TinderUwU~</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-  <h1>Recherche de personnage</h1>
+  <header>
+    <div class="header-top">
+      <div class="logo">
+        <img src="logo.png" alt="Logo" />
+        <span>TinderUwU</span>
+      </div>
 
-  <form id="searchForm">
-    <input type="text" id="nameInput" placeholder="Nom du personnage">
-    
-    <select id="statusSelect">
-      <option value="">Tous les statuts</option>
-      <option value="alive">Alive</option>
-      <option value="dead">Dead</option>
-      <option value="unknown">Unknown</option>
-    </select>
-    
-    <select id="genderSelect">
-      <option value="">Tous les genres</option>
-      <option value="female">Female</option>
-      <option value="male">Male</option>
-      <option value="genderless">Genderless</option>
-      <option value="unknown">Unknown</option>
-    </select>
-    
-    <button type="submit">Rechercher</button>
-  </form>
+    </div>
 
-  <hr>
+    <nav id="menu" class="hidden">
+    </nav>
 
-  <!-- Deck de cartes -->
-  <div id="deck"></div>
+    <hr class="menu-separator hidden" id="separator">
+  </header>
 
-  <!-- Boutons like/pass -->
-  <button id="passBtn">❌ Passer</button>
-  <button id="likeBtn">💚 Liker</button>
+  <main>
+    <div id="main">
 
-  <hr>
+      <form id="searchForm">
+        <input type="text" id="nameInput" placeholder="Nom du personnage">
 
-  <h2>Mes Crushs :</h2>
-  <ul id="matchesList"></ul>
+        <select id="statusSelect">
+          <option value="">Tous les statuts</option>
+          <option value="alive">Alive</option>
+          <option value="dead">Dead</option>
+          <option value="unknown">Unknown</option>
+        </select>
 
-  <script>
-    var form = document.getElementById("searchForm");
-    var deckDiv = document.getElementById("deck");
-    var passBtn = document.getElementById("passBtn");
-    var likeBtn = document.getElementById("likeBtn");
-    var matchesList = document.getElementById("matchesList");
+        <select id="genderSelect">
+          <option value="">Tous les genres</option>
+          <option value="female">Female</option>
+          <option value="male">Male</option>
+          <option value="genderless">Genderless</option>
+          <option value="unknown">Unknown</option>
+        </select>
 
-    // Tableaux globaux
-    var currentCandidates = [];
-    var myMatches = [];
+        <button type="submit">Rechercher</button>
+      </form>
 
-    form.addEventListener("submit", async function(e) {
-      e.preventDefault();
+      <hr>
 
-      var baseUrl = "https://rickandmortyapi.com/api/character/";
+      <div id="deck"></div>
 
-      var name = document.getElementById("nameInput").value;
-      var status = document.getElementById("statusSelect").value;
-      var gender = document.getElementById("genderSelect").value;
+      <button id="passBtn">❌ Passer</button>
+      <button id="likeBtn">💚 Liker</button>
+    </div>
 
-      var params = [];
-      if (name !== "") { params.push("name=" + name); }
-      if (status !== "") { params.push("status=" + status); }
-      if (gender !== "") { params.push("gender=" + gender); }
+    <div id="sidebar">
+      <h2>Mes Crushs</h2>
+      <div id="matchesList"></div>
+    </div>
 
-      var finalUrl = baseUrl;
-      if (params.length > 0) {
-        finalUrl = finalUrl + "?";
-        for (var i = 0; i < params.length; i++) {
-          finalUrl = finalUrl + params[i];
-          if (i < params.length - 1) { finalUrl = finalUrl + "&"; }
-        }
-      }
+  </main>
 
-      deckDiv.innerHTML = ""; // vider deck
-      currentCandidates = [];
 
-      try {
-        var response = await fetch(finalUrl);
-        if (!response.ok) { throw new Error("Erreur API"); }
-        var data = await response.json();
-        currentCandidates = data.results;
+  <footer> All Rights Reserved, TinderUwU Sus Corp., 2026</footer>
 
-        showNextCard(); // Afficher la première carte
-
-      } catch (error) {
-        deckDiv.innerHTML = "<p>Personne dans cette dimension</p>";
-      }
-    });
-
-    // Fonction pour afficher la prochaine carte
-    function showNextCard() {
-      deckDiv.innerHTML = "";
-
-      if (currentCandidates.length === 0) {
-        deckDiv.innerHTML = "<p>Plus de personnages dans le deck</p>";
-        return;
-      }
-
-      var character = currentCandidates[0]; // toujours le premier
-
-      var card = `
-        <div class="character-card">
-          <img src="${character.image}" alt="${character.name}">
-          <h2>${character.name}</h2>
-          <span>${character.status}</span>
-          <p>Espèce: ${character.species}</p>
-          <p>Genre: ${character.gender}</p>
-        </div>
-      `;
-
-      deckDiv.innerHTML = card;
-    }
-
-    // Bouton Passer ❌
-    passBtn.addEventListener("click", function() {
-      if (currentCandidates.length > 0) {
-        currentCandidates.shift(); // retirer premier personnage
-        showNextCard();
-      }
-    });
-
-    // Bouton Liker 💚
-    likeBtn.addEventListener("click", function() {
-      if (currentCandidates.length > 0) {
-        var liked = currentCandidates.shift(); // retirer premier
-        myMatches.push(liked); // ajouter aux crushs
-
-        // Mettre à jour la liste des crushs
-        var item = document.createElement("li");
-        item.textContent = liked.name;
-        matchesList.appendChild(item);
-
-        showNextCard();
-      }
-    });
-
-  </script>
+  <script src="script.js"></script>
 
 </body>
+
 </html>
